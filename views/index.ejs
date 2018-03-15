@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DBLP</title>
+</head>
+<body>
+  Computer science bibliography
+
+  <ul class="publis">
+  <% for(var i=0; i<publis.length; i++) {%>
+    <li class="publis">
+      <span><%= publis[i].type %></span>
+      <span>:</span>
+      <span><%= publis[i].title %></span>
+      </br>
+      <span>URL : <%= publis[i].url %></span>
+    </li>
+  <% } %>
+  </ul>
+</body>
+</html>
