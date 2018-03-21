@@ -40,7 +40,7 @@ app.post('/', (req, res) => {
 })
 
 
-/*
+/* 
  var word1 = /Machine learning/i;
 app.get('/', (req, res) => {
 	var query = { title : word1 };
