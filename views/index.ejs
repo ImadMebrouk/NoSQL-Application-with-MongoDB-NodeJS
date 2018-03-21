@@ -6,7 +6,10 @@
 </head>
 <body>
   Computer science bibliography
-
+	<form action="/" method="POST">
+    <input type="text" placeholder="title" name="title">
+    <button type="submit">Submit</button>
+</form>
   <ul class="publis">
   <% for(var i=0; i<publis.length; i++) {%>
     <li class="publis">
