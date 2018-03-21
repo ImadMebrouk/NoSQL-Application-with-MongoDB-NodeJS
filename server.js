@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.get("/", (req, res) => {
     //res.sendFile(__dirname + "/index.html");
     var result = []
-    res.render('index.ejs', {publis: result})
+    res.render('index.ejs', {publis2: result})
 });
 
 
@@ -29,14 +29,14 @@ app.post('/', (req, res) => {
   //console.log(req.body);
   var word = req.body.title;
   var query = {title : {'$regex': word, '$options': 'i'}};
-  console.log(word); 
+  console.log(word);
   console.log(query);
-    db.collection('publis').find(query).toArray((err, result) => {
+    db.collection('publis2').find(query).toArray((err, result) => {
     if (err) return console.log(err)
-    res.render('index.ejs', {publis: result})
+    res.render('index.ejs', {publis2: result})
   console.log(result)
   })
-  
+
 })
 
 
@@ -44,14 +44,9 @@ app.post('/', (req, res) => {
  var word1 = /Machine learning/i;
 app.get('/', (req, res) => {
 	var query = { title : word1 };
-  	db.collection('publis').find(query).toArray((err, result) => {
+  	db.collection('publis2').find(query).toArray((err, result) => {
     if (err) return console.log(err)
-    res.render('index.ejs', {publis: result})
+    res.render('index.ejs', {publis2: result})
   console.log(result)
   })
 })*/
-
-
-
-
-
