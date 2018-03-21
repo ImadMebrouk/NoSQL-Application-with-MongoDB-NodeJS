@@ -34,7 +34,7 @@ app.post('/', (req, res) => {
     db.collection('publis2').find(query).toArray((err, result) => {
     if (err) return console.log(err)
     res.render('index.ejs', {publis2: result})
-  console.log(result)
+  console.log(result);
   })
 
 })
