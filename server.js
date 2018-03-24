@@ -26,15 +26,30 @@ app.get("/", (req, res) => {
 
 
 app.post('/', (req, res) => {
-  //console.log(req.body);
-  var word = req.body.title;
-  var query = {title : {'$regex': word, '$options': 'i'}};
-  console.log(word);
+  var title = req.body.title;
+  var type = req.body.type;
+  var author = req.body.author;
+  var year = req.body.year;
+  year = parseInt(year)
+
+  if( isNaN(year) == false && year > 1900){
+    var query = {"title" : {'$regex': title, '$options': 'i'}, 
+    "type" : {'$regex': type, '$options': 'i'}, 
+    "authors" : {'$regex': author, '$options': 'i'}, 
+    "year" : year};
+  }
+  else{
+    var query = {"title" : {'$regex': title, '$options': 'i'}, 
+    "type" : {'$regex': type, '$options': 'i'}, 
+    "authors" : {'$regex': author, '$options': 'i'}};
+  }
+
+  console.log(year);
   console.log(query);
     db.collection('publis2').find(query).toArray((err, result) => {
     if (err) return console.log(err)
     res.render('index.ejs', {publis2: result})
-  console.log(result);
+  //console.log(result);
   })
 
 })
