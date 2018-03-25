@@ -97,18 +97,25 @@
                 <div class="form">
                 	<form action="/" method="POST">
                     <input type="text"  placeholder="Please input the title" value="" name="title" class="txt">
-                    <input type="text"  placeholder="Please input the type" value="" name="type" class="txt">
                     <input type="text"  placeholder="Please input the author" value="" name="author" class="txt">
+                    <br>
                     <input type="number"  placeholder="Please input the year" value="" name="year" class="txt">
-
-                     <input type="submit" value="submit" name="submit" class="txt2">
+                    <br>
+                    <br>
+                    <select id="type" name="type">
+                      <option value="Article">Article</option>
+                      <option value="Book">Book</option>
+                      <option value="Phd">Phd</option>
+                    </select>
+                    
+                    <br>
+                    <input type="submit" value="submit" name="submit" class="txt2">
                 </form>
             </div>
             </div>
-            </div
+            </div>
   </div>
 </div>
-
   Results :
   <br>
   <br>
@@ -121,6 +128,10 @@
       <span><%= publis2[i].title %></span>
       </br>
       <span> <strong> URL : </strong> <a href="<%= publis2[i].url %>"><%= publis2[i].url %></a>  </span>
+      </br>
+      <span> <strong> Author : </strong> <%= publis2[i].authors %></a>  </span>
+      </br>
+      <span> <strong> Year : </strong> <%= publis2[i].year %></a>  </span>
     </li>
   <% } %>
   </ul>

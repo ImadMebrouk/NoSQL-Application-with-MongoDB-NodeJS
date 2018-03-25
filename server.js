@@ -31,6 +31,7 @@ app.post('/', (req, res) => {
   var author = req.body.author;
   var year = req.body.year;
   year = parseInt(year)
+  
 
   if( isNaN(year) == false && year > 1900){
     var query = {"title" : {'$regex': title, '$options': 'i'}, 
@@ -44,24 +45,19 @@ app.post('/', (req, res) => {
     "authors" : {'$regex': author, '$options': 'i'}};
   }
 
-  console.log(year);
   console.log(query);
-    db.collection('publis2').find(query).toArray((err, result) => {
+  var mysort = { title: 1 };
+  db.collection('publis2').find(query).sort(mysort).toArray((err, result) => {
     if (err) return console.log(err)
+    db.collection('publis2').find(query).count().then(numItems => {
+      console.log(numItems);
+    })
     res.render('index.ejs', {publis2: result})
   //console.log(result);
-  })
+  });
 
-})
+});
+    
 
 
-/* 
- var word1 = /Machine learning/i;
-app.get('/', (req, res) => {
-	var query = { title : word1 };
-  	db.collection('publis2').find(query).toArray((err, result) => {
-    if (err) return console.log(err)
-    res.render('index.ejs', {publis2: result})
-  console.log(result)
-  })
-})*/
+
