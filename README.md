@@ -16,3 +16,6 @@ $ node server.js
 ```
 
 Then, in your browser, go to localhost:3000 to access to the app and starting your researches.
+
+## Why using MongoDB ?
+MongoDB is a database based on documents. Our dataset dblp is composed by many documents. By choosing MongoDB we are in adequation with our dataset.
